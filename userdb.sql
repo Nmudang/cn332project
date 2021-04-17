@@ -44,8 +44,8 @@ CREATE TABLE `userdb` (
 
 INSERT INTO `userdb` (`id`, `firstname`, `lastname`, `email`, `password`, `username`, `ass_notify`, `notify`) VALUES
 (1, 'mingyu', 'Kim', 'mingyu97@svt.com', '$2y$10$W/IxCowr/c44yKrzLUYCe.ewvEngk79S99CwBTcUg3QXKFKWdSTi.', 'mingyu97', 0, 0),
-(2, 'กนกกร', 'นามเปรมปรีดิ์', '6110613301@student.tu.ac.th', '$2y$10$7asTsrcCkIuyzPAJy9Vh5uFLOILL9FdJlPrXro3QgYnBpr7RIOg.W', 'mudang', 0, 0),
-(5, 'eiei', 'ieie', 'eee@mail.com', '$2y$10$4H518/5JiCsJgnNNBojMt.Ql0l/6o5PAfBtKuKtWiVIQ6JvFXHD4u', 'eee', 0, 0);
+(2, 'wonwoo', 'Jeon', 'wonwoo96@svt.com', '$2y$10$7asTsrcCkIuyzPAJy9Vh5uFLOILL9FdJlPrXro3QgYnBpr7RIOg.W', 'wonwoo96', 0, 0),
+(3, 'paipai', 'Zhou', 'paipai03@mail.com', '$2y$10$4H518/5JiCsJgnNNBojMt.Ql0l/6o5PAfBtKuKtWiVIQ6JvFXHD4u', 'paipai03', 0, 0);
 
 --
 -- Indexes for dumped tables
