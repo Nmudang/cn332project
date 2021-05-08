@@ -3,8 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller { 
     public function __construct(){
 		parent :: __construct(); 
-		
-		$this->load->model('clothes_model'); //กรณี method อื่นต้องเรียกฐานข้อมูลเหมือนกัน
 
 		//Load helper
 		$this->load->helper('url');
@@ -15,30 +13,57 @@ class Main extends CI_Controller {
         $this->load->view('content'); 
         $this->load->view('footer'); 
         } 
+	public function summer() 
+        { 
+		
+		$this->load->model('summer_clothes_factory');
+		$data = $this->summer_clothes_factory->createClothes();
+        $this->load->view('header'); 
+        $this->load->view('products', $data ); 
+        $this->load->view('footer'); 
+        } 
+	public function winter() 
+        { 
+		$this->load->model('winter_clothes_factory');
+		$data = $this->winter_clothes_factory->createClothes();
+        $this->load->view('header'); 
+        $this->load->view('products', $data ); 
+        $this->load->view('footer'); 
+        } 
 	public function product() 
         { 
-		$data = $this->clothes_model->get_data();
+		$this->load->model('clothes_model');
+		$data = $this->clothes_model->createClothes();
         $this->load->view('header'); 
         $this->load->view('products', $data); 
         $this->load->view('footer'); 
         } 
 	public function shirts(){
-		$data = $this->clothes_model->get_1data();
+		$this->load->model('summer_shirts');
+		$this->load->model('winter_shirts');
+		$summer = $this->summer_shirts->getCharacter();
+		$winter = $this->winter_shirts->getCharacter();
 		$this->load->view('header'); 
-		$this->load->view('products', $data); 
+		$this->load->view('products', $summer, $winter); 
 		$this->load->view('footer');
 	}
 	public function dresses(){
-        $data = $this->clothes_model->get_2data();
-        $this->load->view('header'); 
-        $this->load->view('products', $data); 
-        $this->load->view('footer');
+		$this->load->model('summer_dresses');
+		$this->load->model('winter_dresses');
+        $summer = $this->summer_dresses->getCharacter();
+		$winter = $this->winter_dresses->getCharacter();
+		$this->load->view('header'); 
+		$this->load->view('products', $summer, $winter); 
+		$this->load->view('footer');
     }
 	public function trousers(){
-        $data = $this->clothes_model->get_3data();
-        $this->load->view('header'); 
-        $this->load->view('products', $data); 
-        $this->load->view('footer');
+		$this->load->model('summer_trousers');
+		$this->load->model('winter_trousers');
+        $summer = $this->summer_trousers->getCharacter();
+		$winter = $this->winter_trousers->getCharacter();
+		$this->load->view('header'); 
+		$this->load->view('products', $summer, $winter); 
+		$this->load->view('footer');
     }
     public function form(){
 		$this->load->view('form');

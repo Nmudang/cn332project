@@ -16,10 +16,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</span>
                 </div>
             </div>
-            <div class="row">
-                
-                <div class="col-md-4">
-                    <?php foreach ($clothes as $item):?>
+            <?php foreach ($clothes as $item):?>
+                <div class="row">
+                    <div class="col-md-4">
+                    
                         <div class="productbox">
                             <div class="fadeshop">
                                 <div class="captionshop text-center" style="display: none;">
@@ -45,8 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </span>
                             </div>
                         </div>
-                    <?php endforeach;?>
-                </div>
+                    </div>
+                <?php endforeach;?>
             </div>   
         </div>
     </section>

@@ -75,12 +75,11 @@ Licence URI: https://www.os-templates.com/template-terms
 			<li><a href="#">Account</a></li>
 			<li><a class="drop" href="<?=base_url('main/product');?>">Shop</a>
 				<ul>
+				<li><a href="<?=base_url('main/summer');?>">Summer</a></li>
+					<li><a href="<?=base_url('main/winter');?>">Winter</a></li>
 					<li><a href="<?=base_url('main/shirts');?>">Shirts</a></li>
 					<li><a href="<?=base_url('main/trousers');?>">Trousers</a></li>
 					<li><a href="<?=base_url('main/dresses');?>">Dresses</a></li>
-					<li><a href="<?=base_url('main/product');?>">Bags</a></li>
-					<li><a href="<?=base_url('main/product');?>">Shoes</a></li>
-					<li><a href="<?=base_url('main/product');?>">Accessories</a></li>
 				</ul>
         	</li>
 			<li><a href="#">Favorites</a></li>
