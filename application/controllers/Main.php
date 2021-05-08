@@ -32,10 +32,13 @@ class Main extends CI_Controller {
         } 
 	public function product() 
         { 
-		$this->load->model('clothes_model');
-		$data = $this->clothes_model->createClothes();
+		$this->load->model('summer_clothes_factory');
+		$this->load->model('winter_clothes_factory');
+		$data = $this->summer_clothes_factory->createClothes();
+		$winter = $this->winter_clothes_factory->createClothes();
         $this->load->view('header'); 
         $this->load->view('products', $data); 
+		$this->load->view('products', $winter);
         $this->load->view('footer'); 
         } 
 	public function shirts(){
@@ -44,7 +47,8 @@ class Main extends CI_Controller {
 		$summer = $this->summer_shirts->getCharacter();
 		$winter = $this->winter_shirts->getCharacter();
 		$this->load->view('header'); 
-		$this->load->view('products', $summer, $winter); 
+		$this->load->view('products', $summer);
+		$this->load->view('products', $winter); 
 		$this->load->view('footer');
 	}
 	public function dresses(){
@@ -53,7 +57,8 @@ class Main extends CI_Controller {
         $summer = $this->summer_dresses->getCharacter();
 		$winter = $this->winter_dresses->getCharacter();
 		$this->load->view('header'); 
-		$this->load->view('products', $summer, $winter); 
+		$this->load->view('products', $summer);
+		$this->load->view('products', $winter); 
 		$this->load->view('footer');
     }
 	public function trousers(){
@@ -62,7 +67,8 @@ class Main extends CI_Controller {
         $summer = $this->summer_trousers->getCharacter();
 		$winter = $this->winter_trousers->getCharacter();
 		$this->load->view('header'); 
-		$this->load->view('products', $summer, $winter); 
+		$this->load->view('products', $summer);
+		$this->load->view('products', $winter); 
 		$this->load->view('footer');
     }
     public function form(){

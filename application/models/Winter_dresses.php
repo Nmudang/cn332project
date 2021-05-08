@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-interface Abstract_shirts {
-    public function getCharacter();
-}
+
 class Winter_dresses extends CI_Model implements Abstract_shirts {
 
     function getCharacter() {

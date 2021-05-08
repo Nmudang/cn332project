@@ -1,9 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-interface Abstract_shirts {
-    public function getCharacter();
-}
-class Winter_trousers extends CI_Model implements Abstract_shirts {
+
+class Winter_trousers extends CI_Model implements Abstract_trousers {
 
     function getCharacter() {
         $this->db->order_by('Id', 'AESC');
