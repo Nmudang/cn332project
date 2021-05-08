@@ -5,8 +5,9 @@ class Winter_shirts extends CI_Model implements Abstract_shirts {
 
     function getCharacter() {
         $this->db->order_by('Id', 'AESC');
+		$this->db->where('CollectionType', "Winter");
 		$this->db->where('Type', "shirts");
-		$query = $this->db->get('winter');
+		$query = $this->db->get('clothes');
 		foreach ($query->result() as $row)
 		{
 			$data['clothes'][] = array( 
