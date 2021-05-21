@@ -4,6 +4,7 @@ class Main extends CI_Controller {
     public function __construct(){
 		parent :: __construct(); 
 		$this->load->model('facade');
+		$this->load->model('notify_model');
 		//Load helper
 		$this->load->helper('url');
 	}
@@ -11,6 +12,7 @@ class Main extends CI_Controller {
     	$slogin = FALSE;
     		if (isset($_SESSION['logged_in'])) {
         		$slogin = TRUE;
+        		$data = $this->facade->getheader($_SESSION['uid']);
     		}
 
         $data['slogin'] = $slogin;
@@ -19,50 +21,46 @@ class Main extends CI_Controller {
         $this->load->view('footer'); 
         } 
 
-	public function summer() 
-        { 
+	public function summer() { 
         
 		$data = $this->facade->getSummer();
         $slogin = FALSE;
     		if (isset($_SESSION['logged_in'])) {
         		$slogin = TRUE;
+        		$header = $this->facade->getheader($_SESSION['uid']);
     		}
 
-        $data['slogin'] = $slogin;
-        $this->load->view('header',$data); 
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
         $this->load->view('products', $data ); 
         $this->load->view('footer'); 
         } 
-	public function winter() 
-        { 
-        	$slogin = FALSE;
-    	if (isset($_SESSION['logged_in'])) {
-        		$slogin = TRUE;
-    		}
-        
-		$data = $this->facade->getWinter()();
+	public function winter(){ 
+ 
+		$data = $this->facade->getWinter();
         $slogin = FALSE;
     		if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
         		$slogin = TRUE;
     		}
 
-        $data['slogin'] = $slogin;
-        $this->load->view('header',$data); 
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
         $this->load->view('products', $data ); 
         $this->load->view('footer'); 
         } 
-	public function product() 
-        { 
+	public function product() { 
         	
 		$this->load->model('clothes_model');
 		$data = $this->clothes_model->createClothes();
         $slogin = FALSE;
-    		if (isset($_SESSION['logged_in'])) {
+    	if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
         		$slogin = TRUE;
     		}
 
-        $data['slogin'] = $slogin;
-        $this->load->view('header',$data); 
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
         $this->load->view('products', $data);
         $this->load->view('footer'); 
         } 
@@ -71,12 +69,13 @@ class Main extends CI_Controller {
 		$summer = $this->facade->getShirtSummer();
 		$winter = $this->facade->getShirtWinter();
 		$slogin = FALSE;
-    		if (isset($_SESSION['logged_in'])) {
+    	if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
         		$slogin = TRUE;
     		}
 
-        $data['slogin'] = $slogin;
-        $this->load->view('header',$data); 
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
 		$this->load->view('products', $summer);
 		$this->load->view('products', $winter); 
 		$this->load->view('footer');
@@ -87,12 +86,13 @@ class Main extends CI_Controller {
         $summer = $this->facade->getDressesSummer();
 		$winter = $this->facade->getDressesWinter();
 		$slogin = FALSE;
-    		if (isset($_SESSION['logged_in'])) {
+    	if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
         		$slogin = TRUE;
     		}
 
-        $data['slogin'] = $slogin;
-        $this->load->view('header',$data); 
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
 		$this->load->view('products', $summer);
 		$this->load->view('products', $winter); 
 		$this->load->view('footer');
@@ -101,13 +101,13 @@ class Main extends CI_Controller {
 		
         $summer = $this->facade->getTrousersSummer();
 		$winter = $this->facade->getTrousersWinter();
-		$slogin = FALSE;
-    		if (isset($_SESSION['logged_in'])) {
+		if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
         		$slogin = TRUE;
     		}
 
-        $data['slogin'] = $slogin;
-        $this->load->view('header',$data); 
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header);  
 		$this->load->view('products', $summer);
 		$this->load->view('products', $winter); 
 		$this->load->view('footer');
@@ -160,5 +160,41 @@ class Main extends CI_Controller {
 		$this->user_model->delete_data($id);
 		redirect('main');
 	}
+
+	public function cleargoods(){
+		$this->notify_model->clearnotify($_SESSION['uid']);
+		redirect('main');
+	}
+
+	public function goods($id){
+		$data['clothes'] = $this->facade->getGoods($id);
+        $slogin = FALSE;
+    	if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
+        		$slogin = TRUE;
+    		}
+
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
+        $this->load->view('products', $data ); 
+        $this->load->view('footer'); 
+	}
+
+	public function goodsCollection($id) {
+
+		$data= $this->facade->goodsCollec($id);
+        $slogin = FALSE;
+    	if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
+        		$slogin = TRUE;
+    		}
+
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
+        $this->load->view('products', $data ); 
+        $this->load->view('footer'); 
+	}
+
+
 
 }

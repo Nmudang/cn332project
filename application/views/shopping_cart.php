@@ -17,9 +17,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             foreach($clothes as $row)
             {
                 echo '
-                <div class="col-md-4" style="padding:16px; background-color:#f1f1f1; border:1px solid #ccc; margin-bottom:16px; height:400px" align="center">
+                <div class="col-md-4" style="padding:16px; background-color:#f1f1f1; border:1px solid #ccc; margin-bottom:16px; height:500px" align="center">
                 <img src="'.base_url().'public/images/'.$row->product_image.'" width="100" 
                 height="100" class="img-thumbnail" /><br />
+
+                
                 <h4>'.$row->Name.'</h4>
                 <h3 class="text-danger">$'.$row->Price.'</h3>
                 <input type="text" name="quantity" class="form-control quantity" id="'.$row->Id.'" /><br />
@@ -104,4 +106,3 @@ $(document).ready(function(){
     })
 });
 </script>
-

@@ -6,6 +6,7 @@ class Mycollection extends CI_Controller {
 		parent :: __construct();
 		$this->load->model('mycollection_model'); 
 		$this->load->model('clothes_model'); 
+		$this->load->model('facade');
 		$this->load->helper(array('form', 'url'));
 	}
 
@@ -13,7 +14,8 @@ class Mycollection extends CI_Controller {
 	{
 
 		if (isset($_SESSION['logged_in'])) {
-			$data = $this->clothes_model->createClothes();
+			$data = $this->facade->getheader($_SESSION['uid']);
+			$data['clothes'] = $this->clothes_model->createClothes();
 			$data['uid'] = $_SESSION['uid'];
 			$data['slogin'] = TRUE;
 			$this->load->view('header',$data);

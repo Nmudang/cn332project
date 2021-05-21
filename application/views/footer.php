@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="bgded overlay row4" style="background-image:url('public/images/demo/backgrounds/05.png');">
 	<footer id="footer" class="hoc clear"> 
 		<!-- ################################################################################################ -->
 			<div class="center btmspace-50">
@@ -19,78 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- ################################################################################################ -->
 		<hr class="btmspace-50">
 		<!-- ################################################################################################ -->
-		<div class="group btmspace-50">
-			<div class="one_quarter first">
-				<h6 class="heading">Erat adipiscing metus</h6>
-				<p class="nospace btmspace-15">Mi etiam ac enim quis risus hendrerit ullamcorper nam faucibus lectus eget.</p>
-				<form method="post" action="#">
-				<fieldset>
-					<legend>Newsletter:</legend>
-					<input class="btmspace-15" type="text" value="" placeholder="Name">
-					<input class="btmspace-15" type="text" value="" placeholder="Email">
-					<button type="submit" value="submit">Submit</button>
-				</fieldset>
-				</form>
-			</div>
-			<div class="one_quarter">
-				<h6 class="heading">Auctor tellus diam</h6>
-				<ul class="nospace linklist">
-				<li>
-					<article>
-					<p class="nospace btmspace-10"><a href="#">Mauris nam odio dui vestibulum a molestie ac pulvinar a tellus donec nisi dui.</a></p>
-					<time class="block font-xs" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
-					</article>
-				</li>
-				<li>
-					<article>
-					<p class="nospace btmspace-10"><a href="#">Mattis ipsum ut leo ut elementum odio sed tellus quisque malesuada bibendum.</a></p>
-					<time class="block font-xs" datetime="2045-04-05">Thursday, 5<sup>th</sup> April 2045</time>
-					</article>
-				</li>
-				</ul>
-			</div>
-			<div class="one_quarter">
-				<h6 class="heading">Laoreet non sodales</h6>
-				<ul class="nospace linklist">
-				<li><a href="#">Amet blandit non quam quisque</a></li>
-				<li><a href="#">Cursus faucibus nulla in mauris</a></li>
-				<li><a href="#">Libero interdum quis molestie</a></li>
-				<li><a href="#">Ut convallis non felis mauris</a></li>
-				<li><a href="#">Volutpat consequat nibh aenean</a></li>
-				</ul>
-			</div>
-			<div class="one_quarter">
-				<h6 class="heading">Aliquam mollis tortor</h6>
-				<ul class="nospace clear latestimg">
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				<li><a class="imgover" href="#"><img src="public/images/demo/100x100.png" alt=""></a></li>
-				</ul>
-			</div>
+		
 			<!-- ################################################################################################ -->
 		</div>
-			<div id="ctdetails" class="clear">
-			<ul class="nospace clear">
-				<li class="one_quarter first">
-				<div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong> +00 (123) 456 7890</span></div>
-				</li>
-				<li class="one_quarter">
-				<div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Send us a mail:</strong> support@domain.com</span></div>
-				</li>
-				<li class="one_quarter">
-				<div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Monday - Saturday:</strong> 08.00am - 18.00pm</span></div>
-				</li>
-				<li class="one_quarter">
-				<div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Come visit us:</strong> Directions to <a href="#">our location</a></span></div>
-				</li>
-			</ul>
-			</div>
+			
 			<!-- ################################################################################################ -->
 	</footer>
 </div>

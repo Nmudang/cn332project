@@ -8,13 +8,14 @@ class Clothes_model extends CI_Model implements Clothes_factory{
 		$query = $this->db->get('clothes');
 		foreach ($query->result() as $row)
 		{
-			$data['clothes'][] = array( 
+			$data[] = array( 
 				'Id'                => $row->Id,
 				'CollectionType'    => $row->CollectionType,
 				'Type'              => $row->Type,
 				'Name'              => $row->Name,
 				'Price'             => $row->Price,
-				'Number'            => $row->Number
+				'Number'            => $row->Number,
+				'product_image'     => $row->product_image
 			);
 		}
 		//var_dump($data); // debug code
@@ -34,7 +35,7 @@ class Clothes_model extends CI_Model implements Clothes_factory{
 		if ($query->num_rows() > 0)
 		{
 			$row = $query->row();
-			$data = array(
+			$data[] = array(
 				'Id'                => $row->Id,
 				'CollectionType'    => $row->CollectionType,
 				'Type'              => $row->Type,

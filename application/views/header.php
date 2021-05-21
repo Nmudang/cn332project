@@ -23,7 +23,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- Top Background Image Wrapper -->
-<div class="bgded overlay" style="background-image:url('public/images/demo/backgrounds/01.png');"> 
+<div class="bgded overlay"> 
 <!-- ################################################################################################ -->
 	<div class="wrapper row0">
     <div id="topbar" class="hoc clear">
@@ -81,8 +81,9 @@ Licence URI: https://www.os-templates.com/template-terms
 		<nav id="mainav" class="fl_right"> 
         <!-- ################################################################################################ -->
         <ul class="clear">
-			<li class="active"><a href=".">Home</a></li>
+			<li><a href=".">Home</a></li>
 			<li><a href="#">Account</a></li>
+			
 			<li><a class="drop" href="<?=base_url('main/product');?>">Shop</a>
 				<ul>
 				<li><a href="<?=base_url('main/summer');?>">Summer</a></li>
@@ -92,20 +93,41 @@ Licence URI: https://www.os-templates.com/template-terms
 					<li><a href="<?=base_url('main/dresses');?>">Dresses</a></li>
 				</ul>
         	</li>
-			<li><a href="#">Favorites</a></li>
+			<?php if ($slogin):?>
+
+				<li><a class="drop" href="#">New Goods</a>
+					<ul>
+
+						<?php foreach ($newgoods as $item):?>
+							<?php if ($item['Id']  != 0):?>
+								<li><a href="<?=base_url('main/goods');?>/<?= $item['Id'] ?>"><?= $item['Name'] ?></a></li>
+							<?php endif;?>
+						<?php endforeach;?>
+							<li><a href="<?=base_url('main/cleargoods');?>">clear</a></li>
+
+
+
+					</ul>
+				</li>
+
+
 			<li><a href="<?=base_url('shopping_cart');?>">Cart</a></li>
+			
+
+
 			<li><a class="drop" href="<?=base_url('mycollection');?>">MyCollection</a>
 				<ul>
-					<li><a href="#">Beach</a></li>
-					<li><a class="drop" href="#">Earth Tone</a>
-						<ul>
-							<li><a href="#">Shirts</a></li>
-							<li><a href="#">Dresses</a></li>
-							<li><a href="#">Bags</a></li>
-						</ul>
-					</li>
+					
+						<?php foreach ($mycollect as $item):?>
+							<?php if ($item['id']  != 0):?>
+								<li><a href="<?=base_url('main/goodsCollection');?>/<?= $item['id'] ?>"><?= $item['name'] ?></a></li>
+							<?php endif;?>
+						<?php endforeach;?>
 				</ul>
 			</li>
+
+			<?php endif;?>
+
         </ul>
         <!-- ################################################################################################ -->
 		</nav>

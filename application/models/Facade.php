@@ -8,9 +8,34 @@ require_once('Summer_trousers.php');
 require_once('Winter_shirts.php');
 require_once('Winter_dresses.php');
 require_once('Winter_trousers.php');
+require_once('Clothes_model.php');
+require_once('Mycollection_model.php');
+require_once('Notify_model.php');
+
 
 
 class Facade extends CI_Model {
+
+    public function getGoods($id) {
+        $classClothes = new Clothes_model();
+        $data = $classClothes->get_data($id);
+        return $data;
+    }
+
+    public function goodsCollec($id) {
+        $classCollection = new Mycollection_model();
+        $data =  $classCollection->getGoods($id);
+        return $data;
+    }
+
+    public function getheader($uid) {
+        $classCollection = new Mycollection_model();
+        $classNotify = new Notify_model();
+        
+        $data['mycollect'] = $classCollection->getCollect($uid);
+        $data['newgoods'] = $classNotify->getgoods($uid);
+        return $data;
+    }
 
     public function getSummer() {
 
