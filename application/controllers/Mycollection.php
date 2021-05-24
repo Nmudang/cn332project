@@ -51,6 +51,25 @@ class Mycollection extends CI_Controller {
 
 
 
+	public function goodsCollection($id) {
+        if ( $this->mycollection_model->get_uid($id) == $_SESSION['uid']) {
+		$data= $this->facade->goodsCollec($id);
+        $slogin = FALSE;
+    	if (isset($_SESSION['logged_in'])) {
+    			$header = $this->facade->getheader($_SESSION['uid']);
+        		$slogin = TRUE;
+    		}
+
+        $header['slogin'] = $slogin;
+        $this->load->view('header',$header); 
+        $this->load->view('products', $data ); 
+        $this->load->view('footer'); }
+
+      else {
+      	redirect('main/index', 'refresh');
+      }
+	}
+
 
 	
 }

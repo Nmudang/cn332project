@@ -43,6 +43,7 @@ class Notify_model extends CI_Model {
 		$this->db->where('id', $uid);
 		$this->db->update('userdb');
 	}
+	
 
 	public function goods($id) {
 		$this->db->where('id', $uid);

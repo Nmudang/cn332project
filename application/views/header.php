@@ -120,7 +120,7 @@ Licence URI: https://www.os-templates.com/template-terms
 					
 						<?php foreach ($mycollect as $item):?>
 							<?php if ($item['id']  != 0):?>
-								<li><a href="<?=base_url('main/goodsCollection');?>/<?= $item['id'] ?>"><?= $item['name'] ?></a></li>
+								<li><a href="<?=base_url('mycollection/goodsCollection');?>/<?= $item['id'] ?>"><?= $item['name'] ?></a></li>
 							<?php endif;?>
 						<?php endforeach;?>
 				</ul>
@@ -143,7 +143,6 @@ Licence URI: https://www.os-templates.com/template-terms
 		<p>Design your life, create by yourself.</p>
 		<footer>
         <ul class="nospace inline pushright">
-			<li><a class="btn" href="#">Account</a></li>
 			<li><a class="btn inverse" href="#">My collection</a></li>
         </ul>
 		</footer>

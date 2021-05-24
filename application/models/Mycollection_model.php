@@ -21,7 +21,12 @@ class Mycollection_model extends CI_Model {
 	}
 
 	public function get_uid($id) {
-
+		$this->db->where('id', $id);
+		$query = $this->db->get('mycollection'); 
+		if ($query->num_rows() > 0){
+			$row = $query->row();
+			return $row->uid;
+		}
 	}
 
 	public function getGoods($idCollect) {
@@ -40,7 +45,7 @@ class Mycollection_model extends CI_Model {
 						'Name'              => $rowClothes->Name,
 						'Price'             => $rowClothes->Price,
 						'Number'            => $rowClothes->Number,
-						'product_image'     => $row->product_image
+						'product_image'     => $rowClothes->product_image
 					);
 				
 			}
