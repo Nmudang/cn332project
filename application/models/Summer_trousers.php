@@ -4,7 +4,6 @@ interface Abstract_trousers {
     public function getCharacter();
 }
 class Summer_trousers extends CI_Model implements Abstract_trousers {
- 
     function getCharacter() {
         $this->db->order_by('Id', 'AESC');
 		$this->db->where('CollectionType', "Summer");
@@ -18,7 +17,8 @@ class Summer_trousers extends CI_Model implements Abstract_trousers {
 				'Type'              => $row->Type,
 				'Name'              => $row->Name,
 				'Price'             => $row->Price,
-				'Number'            => $row->Number
+				'Number'            => $row->Number,
+				'product_image'     => $row->product_image
 			);
 		}
 		//var_dump($data); // debug code

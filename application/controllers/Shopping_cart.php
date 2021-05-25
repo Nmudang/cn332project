@@ -4,17 +4,24 @@ class Shopping_cart extends CI_Controller {
     public function __construct(){
 		parent :: __construct(); 
         $this->load->model("clothes_model");
+        $this->load->model('facade');
 		//Load helper
 		$this->load->helper('url');
 	}
     function index(){
         if (isset($_SESSION['logged_in'])) { 
-			$data1 = $this->clothes_model->createClothes();
-			$data1['uid'] = $_SESSION['uid'];
-			$data1['slogin'] = TRUE;
+            $data  = $this->facade->getheader($_SESSION['uid']);
+			$data['clothes'] = $this->clothes_model->createClothes();
+			$data['uid'] = $_SESSION['uid'];
+			$data['slogin'] = TRUE;
+
+            $header = $this->facade->getheader($_SESSION['uid']);
+
             $this->load->model("shopping_cart_model");
             $data["clothes"] = $this->shopping_cart_model->fetch_all();
-            $this->load->view("header", $data1);
+
+
+            $this->load->view("header", $data);
             $this->load->view("shopping_cart", $data);
 		}
 		else {

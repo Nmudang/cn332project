@@ -16,7 +16,8 @@ class Winter_trousers extends CI_Model implements Abstract_trousers {
 				'Type'              => $row->Type,
 				'Name'              => $row->Name,
 				'Price'             => $row->Price,
-				'Number'            => $row->Number
+				'Number'            => $row->Number,
+				'product_image'     => $row->product_image
 			);
 		}
 		//var_dump($data); // debug code

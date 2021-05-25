@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h3 align="center">Shopping Cart</h3><br />
             <?php
             foreach($clothes as $row)
-            {
+            { 
                 echo '
                 <div class="col-md-4" style="padding:16px; background-color:#f1f1f1; border:1px solid #ccc; margin-bottom:16px; height:400px" align="center">
                 <img src="'.base_url().'public/images/'.$row->product_image.'" width="100" 

@@ -15,7 +15,8 @@ class Winter_shirts extends CI_Model implements Abstract_shirts {
 				'Type'              => $row->Type,
 				'Name'              => $row->Name,
 				'Price'             => $row->Price,
-				'Number'            => $row->Number
+				'Number'            => $row->Number,
+				'product_image'     => $row->product_image
 			);
 		}
 		//var_dump($data); // debug code

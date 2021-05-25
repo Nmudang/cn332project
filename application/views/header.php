@@ -16,14 +16,14 @@ Licence URI: https://www.os-templates.com/template-terms
 <title>Clothes Collection</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="<?=base_url('public/layout/styles/layout.css');?>" rel="stylesheet" type="text/css" media="all">
+<link href="<?=base_url('public/layout/styles/layouts.css');?>" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- Top Background Image Wrapper -->
-<div class="bgded overlay" style="background-image:url('public/images/demo/backgrounds/01.png');"> 
+<div class="bgded overlay"> 
 <!-- ################################################################################################ -->
 	<div class="wrapper row0">
     <div id="topbar" class="hoc clear">
@@ -81,8 +81,9 @@ Licence URI: https://www.os-templates.com/template-terms
 		<nav id="mainav" class="fl_right"> 
         <!-- ################################################################################################ -->
         <ul class="clear">
-			<li class="active"><a href=".">Home</a></li>
+			<li><a href=".">Home</a></li>
 			<li><a href="#">Account</a></li>
+			
 			<li><a class="drop" href="<?=base_url('main/product');?>">Shop</a>
 				<ul>
 				<li><a href="<?=base_url('main/summer');?>">Summer</a></li>
@@ -92,20 +93,44 @@ Licence URI: https://www.os-templates.com/template-terms
 					<li><a href="<?=base_url('main/dresses');?>">Dresses</a></li>
 				</ul>
         	</li>
-			<li><a href="#">Favorites</a></li>
+			<?php if ($slogin):?>
+
+				<li><a class="drop" href="#">New Goods</a>
+					<ul>
+
+						<?php foreach ($newgoods as $item):?>
+							<?php if ($item['Id']  != 0):?>
+								<li><a href="<?=base_url('main/goods');?>/<?= $item['Id'] ?>"><?= $item['Name'] ?></a></li>
+							<?php endif;?>
+						<?php endforeach;?>
+							<li><a href="<?=base_url('main/cleargoods');?>">clear</a></li>
+
+
+
+					</ul>
+				</li>
+
+
 			<li><a href="<?=base_url('shopping_cart');?>">Cart</a></li>
+			
+
+
 			<li><a class="drop" href="<?=base_url('mycollection');?>">MyCollection</a>
 				<ul>
-					<li><a href="#">Beach</a></li>
-					<li><a class="drop" href="#">Earth Tone</a>
-						<ul>
-							<li><a href="#">Shirts</a></li>
-							<li><a href="#">Dresses</a></li>
-							<li><a href="#">Bags</a></li>
-						</ul>
-					</li>
+					
+						<?php foreach ($mycollect as $item):?>
+							<?php if ($item['id']  != 0):?>
+								<li><a href="<?=base_url('mycollection/goodsCollection');?>/<?= $item['id'] ?>"><?= $item['name'] ?></a></li>
+							<?php endif;?>
+						<?php endforeach;?>
 				</ul>
 			</li>
+			<li>
+				<a href="<?=base_url('main/uploadgoods');?>">Upload</a>				
+			</li>
+
+			<?php endif;?>
+
         </ul>
         <!-- ################################################################################################ -->
 		</nav>
@@ -121,7 +146,6 @@ Licence URI: https://www.os-templates.com/template-terms
 		<p>Design your life, create by yourself.</p>
 		<footer>
         <ul class="nospace inline pushright">
-			<li><a class="btn" href="#">Account</a></li>
 			<li><a class="btn inverse" href="#">My collection</a></li>
         </ul>
 		</footer>

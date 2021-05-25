@@ -80,9 +80,8 @@ class Register extends CI_Controller {
 			);
 
 			$data['slogin'] = FALSE;
-			$this->load->view('header',$data);
+			$this->load->view('headerlogin',$data);
 			$this->load->view('from_register',$data);
-			$this->load->view('footer');
 		}
 		else
 		{

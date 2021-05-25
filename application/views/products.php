@@ -4,21 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- CONTENT =============================-->
 <section class="item content">
         <div class="container toparea">
-            <div class="underlined-title">
-                <div class="editContent">
-                    <h1 class="text-center latestitems">OUR PRODUCTS</h1>
-                </div>
-                <div class="wow-hr type_short">
-                    <span class="wow-hr-h">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-			</span>
-                </div>
-            </div>
+            
             <?php foreach ($clothes as $item):?>
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="col">
+                    <div class="row-md-4">
                     
                         <div class="productbox">
                             <div class="fadeshop">
@@ -30,18 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?= $item['Number'] ?>
                                     </p>
                                     <p>
-                                        <a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Purchase</a>
-                                        <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+                                        <a href="<?=base_url('shopping_cart');?>" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Purchase</a>
                                     </p>
                                 </div>
-                                <span class="maxproduct"><img src="public/images/product1-1.jpg" alt=""></span>
+                                <img src="<?=base_url('public/images');?>/<?= $item['product_image'] ?>" class="img-thumbnail">
                             </div>
                             <div class="product-details">
                                 <a href="#">
-                                    <h1><?= $item['Name'] ?></h1>
+                                    <h1>NAME: <?= $item['Name'] ?></h1>
                                 </a>
                                 <span class="price">
-                                    <span class="edd_price"><?= $item['Price'] ?></span>
+                                    <span class="edd_price"><p>PRICE: <?= $item['Price'] ?></p></span>
                                 </span>
                                 
                             </div>

@@ -22,6 +22,7 @@ class User_model extends CI_Model {
 		//var_dump($data); // debug code
 		return $data;
 	}
+
 	function get_user_all() {
 		$this->db->order_by('id','ASC');
 		$query = $this->db->get('userdb');
@@ -42,6 +43,19 @@ class User_model extends CI_Model {
 		$data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 		return ($this->db->insert('userdb', $data));
 
+	}
+
+	public function checkadmin($id){
+		$this->db->where('id',$id);
+		$query = $this->db->get('userdb');
+
+		if($query->num_rows() > 0) {
+			$row = $query->row();
+			if($row->admin == 1){
+				return TRUE;
+			}
+		}
+		return FALSE;
 	}
 
 	public function login($username, $password){
