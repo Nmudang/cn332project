@@ -1,6 +1,6 @@
 # :maple_leaf: cn332 Project 
 ### Project Website : Clothes Collection
-#### Use PHP Language and CodeIgniter framework to developed website
+#### Use PHP Language and CodeIgniter framework to develop website
 #### This website about Clothes shop
 ### Pattern in this project
 #### - Abstract Factory 
